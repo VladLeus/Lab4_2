@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<ArrayOfPrice xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Price>
+    <goodsName>Ножиц?</goodsName>
+    <marketName>Еп?центр</marketName>
+    <priceInCoins>6500</priceInCoins>
+  </Price>
+  <Price>
+    <goodsName>Пап?р</goodsName>
+    <marketName>Еп?центр</marketName>
+    <priceInCoins>7800</priceInCoins>
+  </Price>
+  <Price>
+    <goodsName>Паралон</goodsName>
+    <marketName>Еп?цент</marketName>
+    <priceInCoins>76800</priceInCoins>
+  </Price>
+  <Price>
+    <goodsName>Роза</goodsName>
+    <marketName>Садоводство</marketName>
+    <priceInCoins>76400</priceInCoins>
+  </Price>
+</ArrayOfPrice>
