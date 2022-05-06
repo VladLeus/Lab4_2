@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace Lab4_2
@@ -34,18 +29,19 @@ namespace Lab4_2
         }
         static PriceStruct.Price GetFromKeyboard()
         {
+            Console.WriteLine();
             Console.WriteLine("Введіть назву товару:");
             string goodsName = Console.ReadLine();
             Console.WriteLine("Введіть назву магазину:");
             string marketName = Console.ReadLine();
-            Console.WriteLine("Введіть ціну товару:");
+            Console.WriteLine("Введіть ціну товару(в копійках):");
             int price = int.Parse(Console.ReadLine());
             return new PriceStruct.Price(goodsName, marketName, price);
         }
         public static void DoPart()
         {
             Console.Clear();
-            Console.WriteLine("Введіть кількість товарів, які записуватимуться");
+            Console.WriteLine("Введіть кількість товарів, які записуватимуться:");
             int n = int.Parse(Console.ReadLine());
             PriceStruct.Price[] info = new PriceStruct.Price[n];
             for (int i = 0; i < info.Length; i++)
@@ -55,8 +51,8 @@ namespace Lab4_2
             Array.Sort(info);
             Console.Clear();
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Введіть 1 щоб записати данні у txt");
-            Console.WriteLine("Введіть 1 щоб записати данні у txt");
+            Console.WriteLine("Введіть 1 щоб записати данні у txt.");
+            Console.WriteLine("Введіть 2 щоб записати данні у xml.");
             Console.WriteLine("Введіть 0 щоб повернутись до головного меню.");
             Console.WriteLine("---------------------------------------------");
             int ch = int.Parse(Console.ReadLine());

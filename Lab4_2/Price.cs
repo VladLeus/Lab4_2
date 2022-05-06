@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace Lab4_2
 {
@@ -26,7 +19,7 @@ namespace Lab4_2
 
             public override string ToString()
             {
-                string info = $"Вся інформація: {this.goodsName} {this.marketName} {this.priceInCoins}";
+                string info = $"{this.goodsName} {this.marketName} {this.priceInCoins/100} грн. {this.priceInCoins % 100} коп.";
                 return info;
             }
 

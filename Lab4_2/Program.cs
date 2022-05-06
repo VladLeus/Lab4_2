@@ -1,18 +1,15 @@
 ﻿using System;
-using System.IO;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace Lab4_2
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            Console.Clear();
             int choice;
             do
             {
+                Console.Clear();
                 Console.WriteLine("---------------------------------------------------------------------------");
                 Console.WriteLine("Введіть 1 для вводу інформації та її збереження в текстовий та xml файли.");
                 Console.WriteLine("Введіть 2 для ввиводу інформації з текстового або xml файлу.");

@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Xml;
 using System.Xml.Serialization;
 
 namespace Lab4_2
 {
     class GetInfo
     {
-        static PriceStruct.Price[] ReadDataXml()
+        public static PriceStruct.Price[] ReadDataXml()
         {
             XmlSerializer xmls = new XmlSerializer(typeof(PriceStruct.Price[]));
             using (StreamReader stream = new StreamReader("info.xml"))
@@ -27,14 +22,16 @@ namespace Lab4_2
             int price = int.Parse(array[2]);
             return new PriceStruct.Price(array[0], array[1], price);
         }
-        static PriceStruct.Price[] ReadDataTxt(string inf)
+        public static PriceStruct.Price[] ReadDataTxt(string inf)
         {
             int count = System.IO.File.ReadAllLines(inf).Length;
             PriceStruct.Price[] info = new PriceStruct.Price[count];
-            StreamReader read = new StreamReader(inf);
-            for (int i = 0; i < count; i++)
+            using (StreamReader read = new StreamReader(inf))
             {
-                info[i] = Separate(read.ReadLine());
+                for (int i = 0; i < count; i++)
+                {
+                    info[i] = Separate(read.ReadLine());
+                }
             }
             return info;
         }
@@ -45,8 +42,8 @@ namespace Lab4_2
             string inf = "info.txt";
             PriceStruct.Price[] infoXml;
             Console.WriteLine("----------------------------------------------");
-            Console.WriteLine("Введіть 1 щоб зчитати інформацію з txt файлу");
-            Console.WriteLine("Введіть 2 щоб зчитати інформацію з xml файлу");
+            Console.WriteLine("Введіть 1 щоб зчитати інформацію з txt файлу.");
+            Console.WriteLine("Введіть 2 щоб зчитати інформацію з xml файлу.");
             Console.WriteLine("Введіть 0 щоб повернутись до головного меню.");
             Console.WriteLine("----------------------------------------------");
             int ch = int.Parse(Console.ReadLine());
@@ -56,18 +53,18 @@ namespace Lab4_2
                     info = ReadDataTxt("info.txt");
                     foreach (PriceStruct.Price obj in info)
                     {
-                        Console.WriteLine($"{obj.goodsName}, {obj.marketName}, {obj.priceInCoins}");
+                        Console.WriteLine(obj.ToString());
                     }
-                    Console.WriteLine("Натисніть Enter щоб повернутися до головного меню");
+                    Console.WriteLine("Натисніть Enter щоб повернутися до головного меню.");
                     Console.ReadKey();
                     break;
                 case 2:
                     infoXml = ReadDataXml();
                     foreach (PriceStruct.Price obj in infoXml)
                     {
-                        Console.WriteLine($"{obj.goodsName}, {obj.marketName}, {obj.priceInCoins}");
+                        Console.WriteLine(obj.ToString());
                     }
-                    Console.WriteLine("Натисніть Enter щоб повернутися до головного меню");
+                    Console.WriteLine("Натисніть Enter щоб повернутися до головного меню.");
                     Console.ReadKey();
                     break;
                 case 0:
