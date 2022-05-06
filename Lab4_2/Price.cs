@@ -9,28 +9,30 @@ using System.Xml.Serialization;
 
 namespace Lab4_2
 {
-    class PriceStruct
+    public class PriceStruct
     {
-        public struct Price
+        public struct Price : IComparable<Price>
         {
             public string goodsName;
             public string marketName;
-            public int price;
-            [XmlAttribute("goodsname")] public string GoodsName;
-            [XmlAttribute("marketname")] public string MarketName;
-            [XmlAttribute("price")] public string Prices;
-
-
-            public Price(string lineWithAllData)
+            public int priceInCoins;
+ 
+            public Price(string goods, string market, int pr1ce)
             {
-                string[] array = lineWithAllData.Trim().Split(" ", StringSplitOptions.RemoveEmptyEntries);
-                goodsName = array[0];
-                marketName = array[1];
-                price = int.Parse(array[2]);
-                GoodsName = array[3];
-                MarketName = array[4];
-                Prices = array[5];
+                goodsName = goods;
+                marketName = market;
+                priceInCoins = pr1ce;
+            }
 
+            public override string ToString()
+            {
+                string info = $"Вся інформація: {this.goodsName} {this.marketName} {this.priceInCoins}";
+                return info;
+            }
+
+            public int CompareTo(Price other)
+            {
+                return String.Compare(this.goodsName, other.goodsName);
             }
         }
     }
